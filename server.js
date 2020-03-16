@@ -6,6 +6,18 @@ expressApp.set('view engine','ejs');
 expressApp.use('/articles', articleRouter);
 
 expressApp.get('/', (req, res)=>{
-    res.render('index');
+
+    const articles = [{
+        title : 'Test title',
+        createdAt : new Date(),
+        description : 'Test description'
+    },
+    {
+        title : 'Test title',
+        createdAt : new Date(),
+        description : 'Test description'
+    }
+    ]
+    res.render('index',{articles : articles});
 })
 expressApp.listen(5000);
